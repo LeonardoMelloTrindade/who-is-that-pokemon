@@ -1,7 +1,0 @@
-.bgPokemon {
-  width: 100%;
- 
-  background-image: url("../public/bgPokemon.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-}
