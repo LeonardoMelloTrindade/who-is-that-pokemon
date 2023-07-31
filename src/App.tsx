@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import PokemonService from './services/pokemon.service'
+import ContainerPokemon from './components/containerPokemon/containerPokemon'
 import './App.css'
 
 
@@ -18,9 +19,16 @@ function App() {
     }, [])
   return (
     <>
-      <div className='bgPokemon'>
-        
-      </div>
+     <main>
+
+        <section className='container_Pokemon'>
+          <ContainerPokemon/>
+        </section>
+        <section>
+               
+        </section>
+
+     </main>
     </>
   )
 }
