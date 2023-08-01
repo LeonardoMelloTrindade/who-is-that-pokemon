@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PokemonService from "../../services/pokemon.service";
 import ImgPokemon from "../imgPokemon/imgPokemon";
+import InputPokemon from "../inputPokemon/inputPokemon";
 import "./containerPokemon.css";
 
 export default function ContainerPokemon() {
@@ -40,17 +41,13 @@ export default function ContainerPokemon() {
         <section className="center_container_pokemon">
           <figure>
             <ImgPokemon
-              pokedex={getRandomNumber(1, 15)}
+              pokedex={getRandomNumber(1, 151)}
               spritePokemon={randomPokemon.front_default}
-            />
+           />
           </figure>
 
           <form>
-            <input
-              type="text"
-              placeholder="Digite aqui o nome do Pokemon"
-              className="input_pokemon"
-            />
+           <InputPokemon />
           </form>
         </section>
       </div>
