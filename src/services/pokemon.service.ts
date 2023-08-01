@@ -2,9 +2,9 @@ import Api from "./api.service";
 
 export default class PokemonService {
 
-  async getPokemons() {
+  async getPokemons(id: number) {
     try {
-      const response = await Api.get("/pokemon/pikachu",)
+      const response = await Api.get(`/pokemon/${id}`,)
       return response.data;
     } catch (error) {
       console.error("Ocorreu um erro ao obter os jogos:", error);
