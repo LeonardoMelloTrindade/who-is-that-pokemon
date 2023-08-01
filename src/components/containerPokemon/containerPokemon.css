@@ -1,3 +1,24 @@
-.img_pokemon {
-    filter: brightness(0%);
+article {
+   background-color: #CCCCFF;
+   padding: 50px 20px;
+}
+
+p {
+    text-align: center;
+    font-size: 2em;
+}
+
+form {
+    display: flex;
+    justify-content: center;
+}
+
+.img_pokemon_container {
+    font-family: 'PT Serif', serif;
+}
+
+.center_container_pokemon {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }

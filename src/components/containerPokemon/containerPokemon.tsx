@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import PokemonService from "../../services/pokemon.service";
-import './containerPokemon.css'
+import ImgPokemon from "../imgPokemon/imgPokemon";
+import "./containerPokemon.css";
 
 export default function ContainerPokemon() {
   const pokemonService = new PokemonService();
+  const [pokemonName, SetPokemonName] = useState("");
   const [randomPokemon, setRandomPokemon] = useState({
     sprites: {},
-    front_default: ''
+    front_default: "",
   });
 
   function getRandomNumber(min: number, max: number): number {
@@ -23,6 +25,7 @@ export default function ContainerPokemon() {
         .then((pokemon: object) => {
           console.log(pokemon);
           setRandomPokemon(pokemon.sprites);
+          SetPokemonName(pokemon.name);
         })
         .catch((error: Error) => {
           console.error("Ocorreu um erro ao obter os dados do pokemon:", error);
@@ -34,10 +37,22 @@ export default function ContainerPokemon() {
     <article>
       <div className="img_pokemon_container">
         <p>Quem é esse Pokemon</p>
-          <span>
-            <img className="img_pokemon" src={randomPokemon.front_default} />
-          </span>
-      
+        <section className="center_container_pokemon">
+          <figure>
+            <ImgPokemon
+              pokedex={getRandomNumber(1, 15)}
+              spritePokemon={randomPokemon.front_default}
+            />
+          </figure>
+
+          <form>
+            <input
+              type="text"
+              placeholder="Digite aqui o nome do Pokemon"
+              className="input_pokemon"
+            />
+          </form>
+        </section>
       </div>
     </article>
   );
