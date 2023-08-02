@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PokemonService from "../../services/pokemon.service";
 import ImgPokemon from "../imgPokemon/imgPokemon";
 import InputPokemon from "../inputPokemon/inputPokemon";
+import BtnPokemon from "../btnPokemon/btnPokemon";
 import "./containerPokemon.css";
 
 export default function ContainerPokemon() {
@@ -36,7 +37,6 @@ export default function ContainerPokemon() {
 
   return (
     <article>
-      <div className="img_pokemon_container">
         <p>Quem é esse Pokemon</p>
         <section className="center_container_pokemon">
           <figure>
@@ -48,9 +48,12 @@ export default function ContainerPokemon() {
 
           <form>
            <InputPokemon />
+           
           </form>
+          <div>
+          <BtnPokemon />
+          </div>
         </section>
-      </div>
     </article>
   );
 }

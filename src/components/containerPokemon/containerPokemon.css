@@ -1,6 +1,7 @@
 article {
    background-color: #CCCCFF;
    padding: 50px 20px;
+   border-radius: 10px;
 }
 
 p {
@@ -8,7 +9,7 @@ p {
     font-size: 2em;
 }
 
-form {
+form, div, figure {
     display: flex;
     justify-content: center;
 }
