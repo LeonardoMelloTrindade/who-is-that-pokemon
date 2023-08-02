@@ -1,24 +1,21 @@
-
-import ContainerPokemon from './components/containerPokemon/containerPokemon'
-import './App.css'
-
+import { useState } from "react";
+import ContainerPokemon from "./components/containerPokemon/containerPokemon";
+import DataContext, { data } from "./data/DataContext";
+import "./App.css";
 
 function App() {
- 
-  return (
-    <>
-     <main>
+  const [pokemon, setPokemon] = useState(data);
 
-        <section className='container_Pokemon'>
+  return (
+    <DataContext.Provider value={{ pokemon, setPokemon }}>
+      <main>
+        <section className="container_Pokemon">
           <ContainerPokemon />
         </section>
-        <section>
-               
-        </section>
-
-     </main>
-    </>
-  )
+        <section></section>
+      </main>
+    </DataContext.Provider>
+  );
 }
 
-export default App
+export default App;

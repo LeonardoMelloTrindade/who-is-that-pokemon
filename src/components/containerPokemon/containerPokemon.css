@@ -13,6 +13,9 @@ form, div, figure {
     display: flex;
     justify-content: center;
 }
+form {
+    flex-direction: column;
+}
 
 .img_pokemon_container {
     font-family: 'PT Serif', serif;
