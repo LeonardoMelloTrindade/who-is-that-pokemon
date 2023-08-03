@@ -5,12 +5,13 @@ import "./btnPokemon.css";
 export default function btnPokemon(props) {
   const { nomePokemon } = props;
   const context = useContext(DataContext)
+  const inputPokemon = context.pokemon.nome
 
   const verificarNomePokemon = () => {
-    console.log(nomePokemon)
-    console.log(context.pokemon.nome)
-    if (nomePokemon == context.pokemon.nome) {
-      console.log(context.pokemon.nome)
+    console.log(nomePokemon.toUpperCase())
+    console.log(inputPokemon)
+    if (nomePokemon == inputPokemon) {
+      console.log(`Parabens, voce acertou o Pokemon ${inputPokemon}`)
     } else {
       console.log('nomes diferentes')
     }
