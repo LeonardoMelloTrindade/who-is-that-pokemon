@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import DataContext from "../../data/DataContext";
 import "./btnPokemon.css";
 
-export default function btnPokemon(props) {
+export default function BtnPokemon(props) {
   const { nomePokemon } = props;
   const context = useContext(DataContext)
   const inputPokemon = context.pokemon.nome

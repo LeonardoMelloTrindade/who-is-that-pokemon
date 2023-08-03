@@ -1,19 +1,21 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useState } from "react";
 import PokemonService from "../../services/pokemon.service";
 import ImgPokemon from "../imgPokemon/imgPokemon";
 import InputPokemon from "../inputPokemon/inputPokemon";
 import BtnPokemon from "../btnPokemon/btnPokemon";
-import DataContext from "../../data/DataContext";
 import "./containerPokemon.css";
 
 export default function ContainerPokemon() {
   const pokemonService = new PokemonService();
-  const context = useContext(DataContext)
   const [pokemonName, SetPokemonName] = useState("");
-  const [randomPokemon, setRandomPokemon] = useState({
-    sprites: {},
-    front_default: "",
-  });
+  const [randomPokemon, setRandomPokemon] = useState<PokemonData | null>(null);
+
+  interface PokemonData {
+    name: string;
+    sprites: {
+      front_default: string;
+    }
+  }
 
   function getRandomNumber(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -21,16 +23,15 @@ export default function ContainerPokemon() {
 
   useEffect(() => {
     const randomNumber = getRandomNumber(1, 151);
-    console.log(randomNumber);
 
     if (randomNumber) {
       pokemonService
         .getPokemons(randomNumber)
-        .then((pokemon: object) => {
+        .then((pokemon: PokemonData) => {
           console.log(pokemon);
-          setRandomPokemon(pokemon.sprites);
-          console.log(pokemon.name)
+          setRandomPokemon(pokemon.sprites.front_default);
           SetPokemonName(pokemon.name);
+          console.log(pokemon.name);
         })
         .catch((error: Error) => {
           console.error("Ocorreu um erro ao obter os dados do pokemon:", error);
@@ -45,7 +46,7 @@ export default function ContainerPokemon() {
         <figure>
           <ImgPokemon
             pokedex={getRandomNumber(1, 151)}
-            spritePokemon={randomPokemon.front_default}
+            spritePokemon={randomPokemon}
           />
         </figure>
 
