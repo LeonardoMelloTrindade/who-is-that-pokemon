@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const data = {
-    nome: 'leo',
+    nome: '',
     pokedex: 0
 }
 

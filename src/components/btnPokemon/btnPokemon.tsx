@@ -9,11 +9,12 @@ export default function btnPokemon(props) {
   const verificarNomePokemon = () => {
     console.log(nomePokemon)
     console.log(context.pokemon.nome)
-    if (nomePokemon === context.pokemon.nome) {
+    if (nomePokemon == context.pokemon.nome) {
       console.log(context.pokemon.nome)
     } else {
       console.log('nomes diferentes')
     }
+    
   };
 
   return (
