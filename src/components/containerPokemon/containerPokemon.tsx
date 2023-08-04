@@ -14,12 +14,16 @@ export default function ContainerPokemon() {
     name: string;
     sprites: {
       front_default: string;
-    }
+    };
   }
 
   function getRandomNumber(min: number, max: number): number {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
+
+  const handleSubmit = (event) => {
+    event.preventDefault(); // Impede o comportamento padrão de submissão do formulário
+  };
 
   useEffect(() => {
     const randomNumber = getRandomNumber(1, 151);
@@ -40,7 +44,7 @@ export default function ContainerPokemon() {
   }, []);
 
   return (
-    <article>
+    <article className="container">
       <p>Quem é esse Pokemon</p>
       <section className="center_container_pokemon">
         <figure>
@@ -50,7 +54,7 @@ export default function ContainerPokemon() {
           />
         </figure>
 
-        <form>
+        <form onSubmit={handleSubmit}>
           <div>
             <InputPokemon />
           </div>

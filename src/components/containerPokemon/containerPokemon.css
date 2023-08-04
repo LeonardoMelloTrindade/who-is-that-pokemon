@@ -4,6 +4,10 @@ article {
    border-radius: 10px;
 }
 
+.container {
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
 p {
     text-align: center;
     font-size: 2em;
