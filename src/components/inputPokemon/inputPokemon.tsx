@@ -1,18 +1,15 @@
 import React, { useState, useContext } from "react";
-import DataContext from "../../data/DataContext";
 import "./inputPokemon.css";
+import { AppContext } from "../../data/Store.";
 
 export default function InputPokemon() {
-  const [inputValue, setInputValue] = useState("");
-  const context = useContext(DataContext);
+  const {nome, setNome} = useContext(AppContext)
 
   const handleChange = (event) => {
     const updatedValue = event.target.value;
-    setInputValue(updatedValue);
-    context.setPokemon({
-      ...context.pokemon,
-      nome: inputValue,
-    });
+    setNome(updatedValue)
+   
+    console.log(`o nome é ${nome}`);
   };
   return (
     <>
@@ -21,7 +18,7 @@ export default function InputPokemon() {
             type="text"
             required={true}
             className="input_pokemon"
-            value={inputValue}
+            value={nome}
             onChange={handleChange}
           />
           <span className="placeholder">nome do pokemon</span>

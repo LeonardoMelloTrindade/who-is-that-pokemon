@@ -1,21 +1,17 @@
 import React, { useContext } from "react";
-import DataContext from "../../data/DataContext";
 import "./btnPokemon.css";
+import { AppContext } from "../../data/Store.";
 
 export default function BtnPokemon(props) {
   const { nomePokemon } = props;
-  const context = useContext(DataContext);
-  const inputPokemon = context.pokemon.nome;
+  const {nome, setAcertou} = useContext(AppContext)
 
   const verificarNomePokemon = () => {
     console.log(nomePokemon)
-    console.log(inputPokemon)
-    if (nomePokemon.trim() == inputPokemon.trim()) {
-      console.log(`Parabens, voce acertou o Pokemon ${inputPokemon}`)
-      context.setPokemon({
-        ...context.pokemon,
-        acertou: true,
-      });
+    console.log(nome)
+    if (nomePokemon.trim() == nome.trim()) {
+      console.log(`Parabens, voce acertou o Pokemon ${nome}`)
+      setAcertou(true);
     } else {
       console.log('nomes diferentes')
     }
@@ -24,7 +20,7 @@ export default function BtnPokemon(props) {
 
   return (
     <>
-      <button onClick={verificarNomePokemon} type="submit" className="button-56" role="button">
+      <button onClick={verificarNomePokemon} type="submit" className="button-87">
         Pronto
       </button>
     </>
