@@ -10,10 +10,6 @@ main {
     height: 99.8vh;
 }
 
-section {
-
-}
-
 .container_Pokemon {
     display: flex;
     align-items: center;

@@ -8,8 +8,6 @@ export default function InputPokemon() {
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const updatedValue = event.target.value;
     setNome(updatedValue)
-   
-    console.log(`o nome é ${nome}`);
   };
   return (
     <>

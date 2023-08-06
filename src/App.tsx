@@ -1,6 +1,7 @@
 import React from "react";
 import ContainerPokemon from "./components/containerPokemon/containerPokemon";
 import "./App.css";
+import "./pokemon-font.css";
 import Store from "./data/Store.";
 
 function App() {
