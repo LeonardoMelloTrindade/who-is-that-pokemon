@@ -2,7 +2,12 @@ import React, { useContext, useEffect } from "react";
 import { AppContext } from "../../data/Store.";
 import "./imgPokemon.css";
 
-export default function ImgPokemon(props: any) {
+interface ImgPokemonProps {
+  pokedex: number
+  spritePokemon: string
+}
+
+export default function ImgPokemon(props: ImgPokemonProps) {
   const { pokedex, spritePokemon } = props;
   const { acertou } = useContext(AppContext);
 

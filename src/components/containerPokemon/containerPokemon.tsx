@@ -21,12 +21,12 @@ export default function ContainerPokemon() {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault(); // Impede o comportamento padrão de submissão do formulário
   };
 
   useEffect(() => {
-    const randomNumber = getRandomNumber(1, 151);
+    const randomNumber  = getRandomNumber(1, 151);
 
     if (randomNumber) {
       pokemonService

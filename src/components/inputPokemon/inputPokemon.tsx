@@ -1,11 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import "./inputPokemon.css";
 import { AppContext } from "../../data/Store.";
 
 export default function InputPokemon() {
   const {nome, setNome} = useContext(AppContext)
 
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const updatedValue = event.target.value;
     setNome(updatedValue)
    

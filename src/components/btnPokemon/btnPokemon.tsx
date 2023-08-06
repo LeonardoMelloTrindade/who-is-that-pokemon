@@ -2,7 +2,11 @@ import React, { useContext } from "react";
 import "./btnPokemon.css";
 import { AppContext } from "../../data/Store.";
 
-export default function BtnPokemon(props) {
+interface BtnPokemonProps {
+  nomePokemon: string
+}
+
+export default function BtnPokemon(props: BtnPokemonProps) {
   const { nomePokemon } = props;
   const {nome, setAcertou} = useContext(AppContext)
 
