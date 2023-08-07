@@ -1,4 +1,8 @@
 @font-face {
     font-family: 'Pokemon';
+    src: url(../public/fonts/Pokemon-Solid.ttf) format('truetype');
+  }
+@font-face {
+    font-family: 'Pokemon-Black';
     src: url(../public/fonts/Pokemon-Hollow.ttf) format('truetype');
   }
