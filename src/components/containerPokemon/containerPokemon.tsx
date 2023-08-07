@@ -44,7 +44,7 @@ export default function ContainerPokemon() {
   }, []);
 
   return (
-    <article className="container">
+    <article className="container_css">
       <p className="font_Pokemon">Quem é esse Pokemon</p>
       <section className="center_container_pokemon">
         <figure>

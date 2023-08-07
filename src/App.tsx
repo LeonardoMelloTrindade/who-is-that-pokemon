@@ -1,8 +1,10 @@
 import React from "react";
 import ContainerPokemon from "./components/containerPokemon/containerPokemon";
+import ModalInfo from "./components/modal/modalInfo";
 import "./App.css";
 import "./pokemon-font.css";
 import Store from "./data/Store.";
+
 
 function App() {
 
@@ -12,7 +14,7 @@ function App() {
           <section className="container_Pokemon">
             <ContainerPokemon />
           </section>
-          <section></section>
+          <section className="section_invisible"><ModalInfo/></section>
         </main>
     </Store>
   );
