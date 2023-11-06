@@ -21,11 +21,15 @@ const Store: React.FC<Props> = (props) => {
     <AppContext.Provider
       value={{
         nome: state.nome,
+        pokemon: state.pokemon,
         pokedex: state.pokedex,
         acertou: state.acertou,
-        setNome: (n) => updateState("nome", n),
-        setPokedex: (n) => updateState("pokedex", n),
-        setAcertou: (n) => updateState("acertou", n),
+        errou: state.errou,
+        setNome: (n: string) => updateState("nome", n),
+        setPokemon: (n: string) => updateState("pokemon", n),
+        setPokedex: (n: number) => updateState("pokedex", n),
+        setAcertou: (n: boolean) => updateState("acertou", n),
+        setErrou: (n: boolean) => updateState("errou", n),
       }}
     >
       {props.children}

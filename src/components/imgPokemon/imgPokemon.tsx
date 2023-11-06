@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { AppContext } from "../../data/Store.";
 import "./imgPokemon.css";
 
@@ -9,14 +9,10 @@ interface ImgPokemonProps {
 
 export default function ImgPokemon(props: ImgPokemonProps) {
   const { pokedex, spritePokemon } = props;
-  const { acertou } = useContext(AppContext);
-
-  useEffect(() => {
-    console.log(acertou);
-  }, [acertou]);
+  const { acertou, errou } = useContext(AppContext);
   const colorImg = {
-    filter: acertou ? "brightness(100%)" : "brightness(0%)",
-    transition: acertou ? "0s" : "0.3s",
+    filter: (acertou || errou) ? "brightness(100%)" : "brightness(0%)",
+    transition: (acertou || errou) ? "0s" : "0.3s",
   };
 
   return (
@@ -24,7 +20,7 @@ export default function ImgPokemon(props: ImgPokemonProps) {
       <img
         className="img_pokemon"
         src={spritePokemon}
-        alt={pokedex}
+        alt={`${pokedex}`}
         style={colorImg}
       />
     </>

@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import PokemonService from "../../services/pokemon.service";
 import ImgPokemon from "../imgPokemon/imgPokemon";
 import InputPokemon from "../inputPokemon/inputPokemon";
 import BtnPokemon from "../btnPokemon/btnPokemon";
+import { AppContext } from "../../data/Store.";
 import "./containerPokemon.css";
 
 export default function ContainerPokemon() {
   const pokemonService = new PokemonService();
   const [pokemonName, SetPokemonName] = useState("");
   const [randomPokemon, setRandomPokemon] = useState<PokemonData | null>(null);
+  const { setPokemon } = useContext(AppContext)
 
   interface PokemonData {
     name: string;
@@ -32,9 +34,9 @@ export default function ContainerPokemon() {
       pokemonService
         .getPokemons(randomNumber)
         .then((pokemon: PokemonData) => {
-          console.log(pokemon);
           setRandomPokemon(pokemon.sprites.front_default);
           SetPokemonName(pokemon.name);
+          setPokemon(pokemon.name)
           console.log(pokemon.name);
         })
         .catch((error: Error) => {
