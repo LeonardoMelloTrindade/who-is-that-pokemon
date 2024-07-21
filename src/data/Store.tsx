@@ -28,7 +28,7 @@ const Store: React.FC<Props> = (props) => {
         setNome: (n: string) => updateState("nome", n),
         setPokemon: (n: string) => updateState("pokemon", n),
         setPokedex: (n: number) => updateState("pokedex", n),
-        setAcertou: (n: boolean) => updateState("acertou", n),
+        setAcertou: () => {},
         setErrou: (n: boolean) => updateState("errou", n),
       }}
     >

@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./btnPokemon.css";
-import { AppContext } from "../../data/Store.";
+import { AppContext } from "../../data/Store";
 
 interface BtnPokemonProps {
   nomePokemon: string

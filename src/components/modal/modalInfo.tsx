@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Button, Modal } from "react-bootstrap";
-import { AppContext } from "../../data/Store.";
+import { AppContext } from "../../data/Store";
 import './modalInfo.css'
 
 export default function ModalInfo() {

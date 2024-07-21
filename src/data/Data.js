@@ -9,6 +9,5 @@ const data = {
     setPokedex: 0,
     setAcertou: false,
     setErrou: false
-}
-
+};
 export default data;

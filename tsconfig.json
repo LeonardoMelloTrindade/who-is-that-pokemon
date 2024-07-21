@@ -14,12 +14,13 @@
     "noEmit": false, // Alterado para false
     "jsx": "react-jsx",
     "emitDeclarationOnly": false, // Alterado para false
+    "declaration": true, 
 
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true
+    "noFallthroughCasesInSwitch": true, 
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

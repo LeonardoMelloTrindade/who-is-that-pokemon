@@ -3,7 +3,7 @@ import PokemonService from "../../services/pokemon.service";
 import ImgPokemon from "../imgPokemon/imgPokemon";
 import InputPokemon from "../inputPokemon/inputPokemon";
 import BtnPokemon from "../btnPokemon/btnPokemon";
-import { AppContext } from "../../data/Store.";
+import { AppContext } from "../../data/Store";
 import "./containerPokemon.css";
 
 export default function ContainerPokemon() {
