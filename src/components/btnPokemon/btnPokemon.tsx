@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./btnPokemon.css";
-import { AppContext } from "../../data/Store";
+import { AppContext } from "../../store/Store";
 
 interface BtnPokemonProps {
   nomePokemon: string
@@ -14,7 +14,6 @@ export default function BtnPokemon(props: BtnPokemonProps) {
   const verificarNomePokemon = () => {
     setOpenModal(true)
     setErrou(nomePokemon === nome ? false : true);
-    
   };
 
   return (

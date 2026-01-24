@@ -3,7 +3,8 @@ import PokemonService from "../../services/pokemon.service";
 import ImgPokemon from "../imgPokemon/imgPokemon";
 import InputPokemon from "../inputPokemon/inputPokemon";
 import BtnPokemon from "../btnPokemon/btnPokemon";
-import { AppContext } from "../../data/Store";
+import { getRandomNumber } from "../../utils/index";
+import { AppContext } from "../../store/Store";
 import "./containerPokemon.css";
 
 export default function ContainerPokemon() {
@@ -17,10 +18,6 @@ export default function ContainerPokemon() {
     sprites: {
       front_default: string;
     };
-  }
-
-  const getRandomNumber = (min: number, max: number): number => {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
   const handleSubmit = (event: React.ChangeEvent<HTMLInputElement>) => {

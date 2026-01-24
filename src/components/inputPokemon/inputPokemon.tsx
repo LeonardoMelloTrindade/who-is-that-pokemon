@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import "./inputPokemon.css";
-import { AppContext } from "../../data/Store";
+import { AppContext } from "../../store/Store";
 
 export default function InputPokemon() {
   const { nome, setNome } = useContext(AppContext)

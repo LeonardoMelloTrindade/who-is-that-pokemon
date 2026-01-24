@@ -3,7 +3,7 @@ import ContainerPokemon from "./components/containerPokemon/containerPokemon";
 import ModalInfo from "./components/modal/modalInfo";
 import "./App.css";
 import "../public/fonts/pokemon-font.css";
-import Store from "./data/Store";
+import Store from "./store/Store";
 
 
 function App() {
