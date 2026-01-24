@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Data  from "./Data";
+import Data  from "../data/Data";
 
 interface Props {
   children: React.ReactNode;
