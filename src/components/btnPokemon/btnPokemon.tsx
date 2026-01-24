@@ -8,16 +8,12 @@ interface BtnPokemonProps {
 
 export default function BtnPokemon(props: BtnPokemonProps) {
   const { nomePokemon } = props;
-  const {nome, setAcertou, setErrou } = useContext(AppContext)
+  const { nome, setErrou, setOpenModal } = useContext(AppContext)
 
 
   const verificarNomePokemon = () => {
-    if (nomePokemon === nome) {
-      setAcertou(true);
-    } else {
-      setAcertou(false)
-      setErrou(true);
-    }
+    setOpenModal(true)
+    setErrou(nomePokemon === nome ? false : true);
     
   };
 

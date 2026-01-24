@@ -11,11 +11,12 @@ const Store: React.FC<Props> = (props) => {
   const [state, setState] = useState(Data);
 
   function updateState(key: string, value: string | number | boolean) {
-    setState({
-      ...state,
-      [key]: value,
-    });
-  }
+  setState((prevState) => ({
+    ...prevState,
+    [key]: value,
+  }));
+}
+
 
   return (
     <AppContext.Provider
@@ -23,13 +24,13 @@ const Store: React.FC<Props> = (props) => {
         nome: state.nome,
         pokemon: state.pokemon,
         pokedex: state.pokedex,
-        acertou: state.acertou,
         errou: state.errou,
+        openModal: state.openModal,
         setNome: (n: string) => updateState("nome", n),
         setPokemon: (n: string) => updateState("pokemon", n),
         setPokedex: (n: number) => updateState("pokedex", n),
-        setAcertou: () => {},
         setErrou: (n: boolean) => updateState("errou", n),
+        setOpenModal: (n: boolean) => updateState("openModal", n)
       }}
     >
       {props.children}
