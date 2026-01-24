@@ -2,13 +2,13 @@ const data = {
     nome: '',
     pokemon: '',
     pokedex: 0,
-    acertou: false,
+    openModal: false,
     errou: false,
     setNome: '',
     setPokemon: '',
     setPokedex: 0,
-    setAcertou: false,
-    setErrou: false
+    setErrou: false,
+    setOpenModal: false,
 }
 
 export default data;

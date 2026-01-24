@@ -3,11 +3,10 @@ import "./inputPokemon.css";
 import { AppContext } from "../../data/Store";
 
 export default function InputPokemon() {
-  const {nome, setNome} = useContext(AppContext)
+  const { nome, setNome } = useContext(AppContext)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const updatedValue = event.target.value;
-    setNome(updatedValue)
+    setNome(event.target.value.toLowerCase());
   };
   return (
     <>

@@ -19,7 +19,7 @@ export default function ContainerPokemon() {
     };
   }
 
-  function getRandomNumber(min: number, max: number): number {
+  const getRandomNumber = (min: number, max: number): number => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
@@ -28,16 +28,16 @@ export default function ContainerPokemon() {
   };
 
   useEffect(() => {
-    const randomNumber  = getRandomNumber(1, 151);
+    const randomNumber = getRandomNumber(1, 151);
 
     if (randomNumber) {
       pokemonService
         .getPokemons(randomNumber)
         .then((pokemon: PokemonData) => {
           setRandomPokemon(pokemon.sprites.front_default);
-          SetPokemonName(pokemon.name);
-          setPokemon(pokemon.name)
-          console.log(pokemon.name);
+          SetPokemonName(pokemon.name.toLowerCase());
+          setPokemon(pokemon.name.toLowerCase())
+          console.log('Nome do pokemon: ', pokemon.name)
         })
         .catch((error: Error) => {
           console.error("Ocorreu um erro ao obter os dados do pokemon:", error);
