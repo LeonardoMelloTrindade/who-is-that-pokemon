@@ -1,6 +1,6 @@
 import React from "react";
 import ContainerPokemon from "./components/containerPokemon/containerPokemon";
-import ModalInfo from "./components/modal/ModalInfo";
+import ModalInfo from "./components/modal/modalInfo";
 import "./App.css";
 import "../public/fonts/pokemon-font.css";
 import Store from "./data/Store";
