@@ -31,3 +31,7 @@
 .button-87:active {
   transform: scale(0.95);
 }
+
+.button-87:disabled {
+  cursor: not-allowed;
+}
