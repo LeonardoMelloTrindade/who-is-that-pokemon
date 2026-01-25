@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./btnPokemon.css";
 import { AppContext } from "../../store/Store";
 
@@ -18,8 +18,13 @@ export default function BtnPokemon(props: BtnPokemonProps) {
 
   return (
     <>
-      <button onClick={verificarNomePokemon} type="submit" className="button-87">
-        Pronto
+      <button 
+        onClick={verificarNomePokemon}
+        type="submit"
+        className="button-87"
+        disabled={nome.length < 3}
+        >
+          Pronto
       </button>
     </>
   );
