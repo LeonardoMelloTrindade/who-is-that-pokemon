@@ -1,16 +1,18 @@
 const data = {
     nome: '',
-    pokemon: '',
     pokedex: 0,
     openModal: false,
     errou: false,
     pontuacao: 0,
+    spritePokemon: '',
+    pokemonNameApi: '',
     setNome: '',
-    setPokemon: '',
     setPokedex: 0,
     setErrou: false,
     setOpenModal: false,
-    setPontuacao: 0
+    setPontuacao: 0,
+    setSpritePokemon: '',
+    setPokemonNameApi: ''
 }
 
 export default data;
