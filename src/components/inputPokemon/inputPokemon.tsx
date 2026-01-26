@@ -1,13 +1,17 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import "./inputPokemon.css";
 import { AppContext } from "../../store/Store";
 
 export default function InputPokemon() {
-  const { nome, setNome } = useContext(AppContext)
+  const { nome, setNome, openModal } = useContext(AppContext)
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setNome(event.target.value.toLowerCase());
   };
+
+  useEffect(() => {
+    if (openModal) setNome("")
+  }, [openModal])
   return (
     <>
       <article className="boxInput">
