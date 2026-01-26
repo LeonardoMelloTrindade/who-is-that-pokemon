@@ -2,19 +2,41 @@ import React, { useState, useContext, useEffect } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { AppContext } from "../../store/Store";
 import './modalInfo.css';
+import { getRandomNumber } from "../../utils";
+import PokemonService from "../../services/pokemon.service";
 
 export default function ModalInfo() {
-  const { errou, pokemon, openModal, setOpenModal, setPontuacao, pontuacao } = useContext(AppContext);
+  const pokemonService = new PokemonService();
+  const { pokemonNameApi, setPokemonNameApi, errou, openModal, setOpenModal, setPontuacao, pontuacao, setSpritePokemon,  } = useContext(AppContext);
   const [modal, setModal] = useState(false);
   const [titulo, setTitulo] = useState("");
   const [variante, setVariante] = useState("");
   const [textBtn, setTextBtn] = useState("");
   const [textPontuacao, setTextPontuacao] = useState("");
 
+  interface PokemonData {
+      name: string;
+      sprites: {
+        front_default: string;
+      };
+    }
+
   const reloadGame = () => {
-    if (errou) window.location.reload();  
+    if (errou) window.location.reload();
     setModal(false);
     setOpenModal(false);
+    
+    const randomNumber = getRandomNumber(1, 151);
+    pokemonService
+      .getPokemons(randomNumber)
+      .then((pokemon: PokemonData) => {
+        setSpritePokemon(pokemon.sprites.front_default);
+        setPokemonNameApi(pokemon.name.toLowerCase())
+        console.log('Nome do pokemon: ', pokemon.name)
+      })
+      .catch((error: Error) => {
+        console.error("Ocorreu um erro ao obter os dados do pokemon:", error);
+      });
   }
 
   useEffect(() => {
@@ -35,7 +57,7 @@ export default function ModalInfo() {
       </Modal.Header>
       <Modal.Body className="text_pontuacao">
         <div>
-          O nome do Pokémon é<span className="nomePokemon">&nbsp;{pokemon}</span>.
+          O nome do Pokémon é<span className="nomePokemon">&nbsp;{pokemonNameApi}</span>.
         </div>
         <div>
           {textPontuacao}

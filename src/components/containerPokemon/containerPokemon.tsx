@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import PokemonService from "../../services/pokemon.service";
 import ImgPokemon from "../imgPokemon/imgPokemon";
 import InputPokemon from "../inputPokemon/inputPokemon";
@@ -9,9 +9,7 @@ import "./containerPokemon.css";
 
 export default function ContainerPokemon() {
   const pokemonService = new PokemonService();
-  const [pokemonName, SetPokemonName] = useState("");
-  const [randomPokemon, setRandomPokemon] = useState<PokemonData | null>(null);
-  const { setPokemon } = useContext(AppContext)
+  const { setSpritePokemon, pokemonNameApi, setPokemonNameApi } = useContext(AppContext)
 
   interface PokemonData {
     name: string;
@@ -31,9 +29,8 @@ export default function ContainerPokemon() {
       pokemonService
         .getPokemons(randomNumber)
         .then((pokemon: PokemonData) => {
-          setRandomPokemon(pokemon.sprites.front_default);
-          SetPokemonName(pokemon.name.toLowerCase());
-          setPokemon(pokemon.name.toLowerCase())
+          setSpritePokemon(pokemon.sprites.front_default);
+          setPokemonNameApi(pokemon.name.toLowerCase());
           console.log('Nome do pokemon: ', pokemon.name)
         })
         .catch((error: Error) => {
@@ -49,7 +46,6 @@ export default function ContainerPokemon() {
         <figure>
           <ImgPokemon
             pokedex={getRandomNumber(1, 151)}
-            spritePokemon={randomPokemon}
           />
         </figure>
 
@@ -58,7 +54,7 @@ export default function ContainerPokemon() {
             <InputPokemon />
           </div>
           <div>
-            <BtnPokemon nomePokemon={pokemonName} />
+            <BtnPokemon nomePokemon={pokemonNameApi} />
           </div>
         </form>
       </section>

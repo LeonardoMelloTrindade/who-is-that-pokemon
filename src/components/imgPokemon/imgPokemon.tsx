@@ -4,15 +4,14 @@ import "./imgPokemon.css";
 
 interface ImgPokemonProps {
   pokedex: number
-  spritePokemon: string
 }
 
 export default function ImgPokemon(props: ImgPokemonProps) {
-  const { pokedex, spritePokemon } = props;
-  const { acertou, errou } = useContext(AppContext);
+  const { pokedex } = props;
+  const { openModal,spritePokemon } = useContext(AppContext);
   const colorImg = {
-    filter: (acertou || errou) ? "brightness(100%)" : "brightness(0%)",
-    transition: (acertou || errou) ? "0s" : "0.3s",
+    filter: openModal ? "brightness(100%)" : "brightness(0%)",
+    transition: openModal ? "0s" : "0.3s",
   };
 
   return (
