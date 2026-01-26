@@ -4,15 +4,14 @@ import { AppContext } from "../../store/Store";
 import './modalInfo.css';
 
 export default function ModalInfo() {
-  const { errou, pokemon, openModal, setOpenModal } = useContext(AppContext);
+  const { errou, pokemon, openModal, setOpenModal, setPontuacao, pontuacao } = useContext(AppContext);
   const [modal, setModal] = useState(false);
   const [titulo, setTitulo] = useState("");
   const [variante, setVariante] = useState("");
   const [textBtn, setTextBtn] = useState("");
-  const handleClose = () => setModal(false);
 
   const reloadGame = () => {
-    window.location.reload();
+    if (errou) window.location.reload();  
     setModal(false);
     setOpenModal(false);
   }
@@ -23,11 +22,12 @@ export default function ModalInfo() {
       setTitulo(errou ? "Você errou, tente novamente." : "Parabéns, você acertou!!!");
       setVariante(errou ? "outline-danger" : "outline-success");
       setTextBtn(errou ? "Tentar novamente!" : "Jogar de novo!");
+      setPontuacao(errou ? 0 : pontuacao + 1)
     }
   }, [errou, openModal]);
 
   return (
-    <Modal show={modal} onHide={handleClose}>
+    <Modal show={modal} onHide={reloadGame}>
       <Modal.Header>
         <Modal.Title>{titulo}</Modal.Title>
       </Modal.Header>
