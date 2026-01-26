@@ -26,11 +26,13 @@ const Store: React.FC<Props> = (props) => {
         pokedex: state.pokedex,
         errou: state.errou,
         openModal: state.openModal,
+        pontuacao: state.pontuacao,        
         setNome: (n: string) => updateState("nome", n),
         setPokemon: (n: string) => updateState("pokemon", n),
         setPokedex: (n: number) => updateState("pokedex", n),
         setErrou: (n: boolean) => updateState("errou", n),
-        setOpenModal: (n: boolean) => updateState("openModal", n)
+        setOpenModal: (n: boolean) => updateState("openModal", n),
+        setPontuacao: (n: number) => updateState("pontuavao", n)
       }}
     >
       {props.children}
