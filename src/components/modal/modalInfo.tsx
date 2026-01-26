@@ -9,6 +9,7 @@ export default function ModalInfo() {
   const [titulo, setTitulo] = useState("");
   const [variante, setVariante] = useState("");
   const [textBtn, setTextBtn] = useState("");
+  const [textPontuacao, setTextPontuacao] = useState("");
 
   const reloadGame = () => {
     if (errou) window.location.reload();  
@@ -22,6 +23,7 @@ export default function ModalInfo() {
       setTitulo(errou ? "Você errou, tente novamente." : "Parabéns, você acertou!!!");
       setVariante(errou ? "outline-danger" : "outline-success");
       setTextBtn(errou ? "Tentar novamente!" : "Jogar de novo!");
+      setTextPontuacao(errou ? "Você perdeu seus pontos." : "Você ganhou mais 1 ponto.")
       setPontuacao(errou ? 0 : pontuacao + 1)
     }
   }, [errou, openModal]);
@@ -31,7 +33,14 @@ export default function ModalInfo() {
       <Modal.Header>
         <Modal.Title>{titulo}</Modal.Title>
       </Modal.Header>
-      <Modal.Body>O nome do Pokémon é<span className="nomePokemon">&nbsp;{pokemon}</span>.</Modal.Body>
+      <Modal.Body className="text_pontuacao">
+        <div>
+          O nome do Pokémon é<span className="nomePokemon">&nbsp;{pokemon}</span>.
+        </div>
+        <div>
+          {textPontuacao}
+        </div>
+      </Modal.Body>
       <Modal.Footer>
         <Button
           variant={variante}

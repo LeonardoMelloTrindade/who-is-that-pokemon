@@ -1,3 +1,7 @@
 .nomePokemon {
     text-transform: capitalize;
 }
+
+.text_pontuacao {
+    display: block;
+}
