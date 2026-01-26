@@ -1,5 +1,6 @@
 import React from "react";
 import ContainerPokemon from "./components/containerPokemon/containerPokemon";
+import ContainerPontuacao from "./components/containerPontuacao/containerPontuacao";
 import ModalInfo from "./components/modal/modalInfo";
 import "./App.css";
 import "../public/fonts/pokemon-font.css";
@@ -7,15 +8,15 @@ import Store from "./store/Store";
 
 
 function App() {
-
   return (
     <Store>
-        <main>
-          <section className="container_Pokemon">
-            <ContainerPokemon />
-          </section>
-          <section className="section_invisible"><ModalInfo/> </section>
-        </main>
+      <main>
+        <ContainerPontuacao />
+        <section className="container_Pokemon">
+          <ContainerPokemon />
+        </section>
+        <section className="section_invisible"><ModalInfo/> </section>
+      </main>
     </Store>
   );
 }

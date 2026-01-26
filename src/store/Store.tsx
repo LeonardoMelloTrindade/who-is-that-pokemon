@@ -32,7 +32,7 @@ const Store: React.FC<Props> = (props) => {
         setPokedex: (n: number) => updateState("pokedex", n),
         setErrou: (n: boolean) => updateState("errou", n),
         setOpenModal: (n: boolean) => updateState("openModal", n),
-        setPontuacao: (n: number) => updateState("pontuavao", n)
+        setPontuacao: (n: number) => updateState("pontuacao", n)
       }}
     >
       {props.children}
