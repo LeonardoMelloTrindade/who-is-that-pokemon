@@ -31,7 +31,6 @@ export default function ContainerPokemon() {
         .then((pokemon: PokemonData) => {
           setSpritePokemon(pokemon.sprites.front_default);
           setPokemonNameApi(pokemon.name.toLowerCase());
-          console.log('Nome do pokemon: ', pokemon.name)
         })
         .catch((error: Error) => {
           console.error("Ocorreu um erro ao obter os dados do pokemon:", error);
