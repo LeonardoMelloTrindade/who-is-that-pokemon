@@ -1,4 +1,3 @@
-import React from "react";
 import ContainerPokemon from "./components/containerPokemon/containerPokemon";
 import ContainerPontuacao from "./components/containerPontuacao/containerPontuacao";
 import ModalInfo from "./components/modal/modalInfo";
@@ -15,7 +14,7 @@ function App() {
         <section className="container_Pokemon">
           <ContainerPokemon />
         </section>
-        <section className="section_invisible"><ModalInfo/> </section>
+        <section className="section_invisible"><ModalInfo /> </section>
       </main>
     </Store>
   );
