@@ -1,21 +1,21 @@
-import React, { useState } from "react";
-import Data  from "../data/Data";
+import { useState, createContext } from "react";
+import Data from "../data/Data";
 
 interface Props {
   children: React.ReactNode;
 }
 
-export const AppContext = React.createContext(Data);
+export const AppContext = createContext(Data);
 
 const Store: React.FC<Props> = (props) => {
   const [state, setState] = useState(Data);
 
   function updateState(key: string, value: string | number | boolean) {
-  setState((prevState) => ({
-    ...prevState,
-    [key]: value,
-  }));
-}
+    setState((prevState) => ({
+      ...prevState,
+      [key]: value,
+    }));
+  }
 
 
   return (

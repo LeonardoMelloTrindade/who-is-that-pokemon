@@ -1,4 +1,4 @@
-import React, { useState, useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Button, Modal } from "react-bootstrap";
 import { AppContext } from "../../store/Store";
 import './modalInfo.css';
@@ -7,7 +7,7 @@ import PokemonService from "../../services/pokemon.service";
 
 export default function ModalInfo() {
   const pokemonService = new PokemonService();
-  const { pokemonNameApi, setPokemonNameApi, errou, openModal, setOpenModal, setPontuacao, pontuacao, setSpritePokemon,  } = useContext(AppContext);
+  const { pokemonNameApi, setPokemonNameApi, errou, openModal, setOpenModal, setPontuacao, pontuacao, setSpritePokemon, } = useContext(AppContext);
   const [modal, setModal] = useState(false);
   const [titulo, setTitulo] = useState("");
   const [variante, setVariante] = useState("");
@@ -15,17 +15,17 @@ export default function ModalInfo() {
   const [textPontuacao, setTextPontuacao] = useState("");
 
   interface PokemonData {
-      name: string;
-      sprites: {
-        front_default: string;
-      };
-    }
+    name: string;
+    sprites: {
+      front_default: string;
+    };
+  }
 
   const reloadGame = () => {
     if (errou) window.location.reload();
     setModal(false);
     setOpenModal(false);
-    
+
     const randomNumber = getRandomNumber(1, 151);
     pokemonService
       .getPokemons(randomNumber)
